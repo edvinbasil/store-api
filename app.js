@@ -1,10 +1,9 @@
 const express = require('express')
 const app = express();
 
-app.use((req, res, next) => {
-	res.status(200).json({
-		message: "It works!"
-	})
-}) 		//Sets up middelware
+const productRoutes = require('./api/routes/products');
+const orderRoutes = require('./api/routes/orders');
 
+app.use('/products', productRoutes); 		//Sets up middelware
+app.use('/orders', orderRoutes);
 module.exports = app;
